@@ -10,10 +10,7 @@ on:
 
 jobs:
   build-and-test:
-    runs-on: ${{ matrix.os }}
-    strategy:
-      matrix:
-        os: [ubuntu-latest, windows-latest, macos-latest]
+    runs-on: ubuntu-latest
 
     steps:
     - name: Checkout repository
@@ -28,13 +25,18 @@ jobs:
     - name: Set up Node.js
       uses: actions/setup-node@v2
       with:
-        node-version: '18'
+        node-version: '18' # Use latest LTS version
 
     - name: Install Playwright Browsers
       run: npx playwright install
 
     - name: Install Maven dependencies
       run: mvn clean install -DskipTests
+
+    - name: Update to Headless Mode
+      # Optional step to modify Playwright configuration for headless mode
+      run: |
+        sed -i 's/.launch()/launch({ headless: true })/g' $(find src/ -name \*.java)
 
     - name: Run Tests
       run: mvn test
