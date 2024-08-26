@@ -2,7 +2,7 @@
 
 This project provides an automated testing suite for the SauceDemo web application using Java, Playwright, and JUnit. It covers key scenarios such as login functionality, cart operations, checkout processes, and various validations.
 
-![Java](https://img.shields.io/badge/Java-11%2B-blue) ![Maven](https://img.shields.io/badge/Maven-%3E%3D3.6.0-brightgreen) ![JUnit](https://img.shields.io/badge/JUnit-5.8-green)
+![Java](https://www.oracle.com/java/technologies/downloads/) ![Maven](https://img.shields.io/badge/Maven-%3E%3D3.6.0-brightgreen) ![JUnit](https://img.shields.io/badge/JUnit-5.8-green)
 
 ## 📑 Table of Contents
 
