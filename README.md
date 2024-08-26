@@ -34,9 +34,11 @@ src
             └── bequalified
                 └── tests
                     ├── CartTest.java
-                    ├── CheckoutProcessTest.java
-                    ├── ImageValidationTest.java
-                    ├── PostalCodeValidationTest.java
+                    ├── CheckoutCompleteTest.java
+                    ├── CheckoutOverviewTest.java
+                    ├── CheckoutTest.java
+                    ├── InventoryTest.java
+                    ├── LoginTest.java
 
 
 ## ⚙️ Setup Instructions
