@@ -9,10 +9,7 @@ This project provides an automated testing suite for the SauceDemo web applicati
 - [Project Structure](#project-structure)
 - [Setup Instructions](#setup-instructions)
 - [Running Tests](#running-tests)
-- [Test Coverage](#test-coverage)
 - [Known Issues](#known-issues)
-- [Contributing](#contributing)
-- [License](#license)
 
 ## 📁 Project Structure
 
@@ -50,38 +47,35 @@ Maven 3.6.0 or higher
 Node.js and Playwright
 
 Installation
+
 Clone the Repository:
 
 git clone https://github.com/gadzoalena/bequalified-e2e-playwright-java.git
 cd bequalified-e2e-playwright-java
-Install Dependencies:
 
+
+Install Dependencies:
 mvn clean install
 
 Set Up Playwright Browsers:
-
 npx playwright install
 
 🚀 Running Tests
 Single Test Execution
 Run an individual test class:
-
 mvn test -Dtest=LoginTest
 
+
+
 Full Test Suite Execution
-
-
 Execute all tests:
-
 mvn clean test
+
+
+
 Report Generation
-
-
 Create and view the test report:
-
 mvn surefire-report:report
-
-
 Access the report under target/site/surefire-report.html.
 
 
