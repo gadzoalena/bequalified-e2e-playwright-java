@@ -33,11 +33,6 @@ jobs:
     - name: Install Maven dependencies
       run: mvn clean install -DskipTests
 
-    - name: Update to Headless Mode
-      # Optional step to modify Playwright configuration for headless mode
-      run: |
-        sed -i 's/.launch()/launch({ headless: true })/g' $(find src/ -name \*.java)
-
     - name: Run Tests
       run: mvn test
 
