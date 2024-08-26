@@ -1,0 +1,49 @@
+name: Java CI with Playwright
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build-and-test:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Set up JDK 20
+      uses: actions/setup-java@v2
+      with:
+        distribution: 'adopt'
+        java-version: '20'
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '14'
+
+    - name: Install Playwright Browsers
+      run: npx playwright install
+
+    - name: Install Maven dependencies
+      run: mvn clean install -DskipTests
+
+    - name: Run Tests
+      run: mvn test
+
+    - name: Generate HTML Report
+      run: mvn surefire-report:report
+
+    - name: Upload Test Results
+      uses: actions/upload-artifact@v2
+      with:
+        name: sure-fire-report
+        path: target/site/surefire-report.html
